@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large" color="light">Roleta - Tão Massas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid >
+    <ion-row>
+      <ion-col>
+        <ion-list> 
+          <ion-item *ngFor="let entry of form">
+            <!--<ion-checkbox [(ngModel)]="entry.isChecked" (click)="check(entry)" [disabled]="!entry.isChecked && checkeds === limit"></ion-checkbox>-->
+            <ion-checkbox [(ngModel)]="entry.isChecked" (click)="check(entry)" [disabled]="rodando"></ion-checkbox>
+            <ion-label class="ion-text-wrap">{{ entry.val }}</ion-label>
+            <ion-note slot="end">R$ {{ entry.preco }}</ion-note>
+          </ion-item> '
+        </ion-list>
+      </ion-col>
+    </ion-row>  
+    <ion-row>
+      <ion-col>
+        <p class="center">{{ txtreponse }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="center" (click)="clicksorteio()"> sortear </ion-button>
+      </ion-col>
+    </ion-row>  
+    <ion-row id="last-row">
+      <ion-col>
+        <circle-progress (click)="clicksorteio()"
+          [percent]="percent"
+          [maxPercent]="100"
+          [radius]="radius"
+          [showTitle]="true" 
+          [title]="texto" 
+          [showSubtitle]="false"
+          [showUnits]="false"
+          [outerStrokeWidth]="16"
+          [outerStrokeColor]="'#8000FF'"
+          [showZeroOuterStroke]="false"
+          [backgroundStroke]="'#33003F'"
+          [backgroundStrokeWidth]="3"
+          [outerStrokeGradient]="true"
+          [outerStrokeGradientStopColor]="'#FF00CB'"
+          [showInnerStroke]="false"
+          [imageHeight] = "30"
+          [imageWidth] = "30"
+        ></circle-progress>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
